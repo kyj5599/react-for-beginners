@@ -9,11 +9,25 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script>
     const root = document.getElementById('root');
-    const span = React.createElement(
-        // "span" -> 생성하고자 하는 HTML태그와 똑같은 이름이여야 함
-        "span", 
-        { id: "sexy-span", style: {color: "red"} }, 
-        "Hello I`m a span!");
-    ReactDOM.render(span, root)
+    const h3 = React.createElement(
+        "h3", 
+        {
+        id: "title",
+        onMouseEnter : () => console.log("Mouse entered")
+        }, 
+        "Hello I`m a span!"
+    );
+    const btn = React.createElement(
+        "button", 
+        // event listener
+        {
+        onClick: () => console.log("Button clicked"),
+        style: {backgroundColor: "tomato"}
+        }, 
+        // content
+        "Click me"
+    );
+    const container = React.createElement("div", null, [h3, btn]);
+    ReactDOM.render(container, root)
 </script>
 </html>
