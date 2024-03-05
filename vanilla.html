@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- 1. HTML 생성 -->
-<body>
+  <!-- 1. HTML 생성 -->
+  <body>
     <span>Total clicks: 0</span>
     <button id="btn">Click me</button>
-</body>
+  </body>
 
-<script>
+  <script>
     let counter = 0;
     // 2. Javascript에서 가져옴
-    const button = document.getElementById('btn');
-    const span = document.querySelector('span'); 
+    const button = document.getElementById("btn");
+    const span = document.querySelector("span");
     function handleClick() {
-        // 4. 데이터 업데이트
-        counter = counter + 1;
-        // 5. HTML을 업데이트
-        span.innerText = `Total clicks: ${counter}`;
-    }  
+      // 4. 데이터 업데이트
+      counter = counter + 1;
+      // 5. HTML을 업데이트
+      span.innerText = `Total clicks: ${counter}`;
+    }
     // 3. event 감지
     button.addEventListener("click", handleClick);
-</script>
+  </script>
 </html>
