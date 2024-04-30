@@ -19,15 +19,15 @@
     const root = document.getElementById("root");
     function App() {
       const [amount, setAmount] = React.useState();
-      const [flipped, setFlipped] = React.useState(false);
+      const [inverted, setInverted] = React.useState(false);
       const onChange = (event) => {
         setAmount(event.target.value);
       };
       const reset = () => setAmount(0);
-      // flipped가 true면 false로, false면 true로 바꿔줌
+      // inverted가 true면 false로, false면 true로 바꿔줌
       const onFlip = () => {
         reset();
-        setFlipped((currnet) => !currnet);
+        setInverted((currnet) => !currnet);
       };
       return (
         <div>
@@ -35,12 +35,12 @@
           <div>
             <labels htmlFor="minutes">Minutes</labels>
             <input
-              value={flipped ? amount * 60 : amount}
+              value={inverted ? amount * 60 : amount}
               id="minutes"
               placeholder="Minutes"
               type="number"
               onChange={onChange}
-              disabled={flipped}
+              disabled={inverted}
             />
           </div>
 
@@ -48,16 +48,16 @@
             <labels htmlFor="hours">Hours</labels>
             <input
               // Math.round : 반올림
-              value={flipped ? amount : Math.round(amount / 60)}
+              value={inverted ? amount : Math.round(amount / 60)}
               id="hours"
               placeholder="Hours"
               type="number"
-              disabled={!flipped}
+              disabled={!inverted}
               onChange={onChange}
             />
           </div>
           <button onClick={reset}>Reset</button>
-          <button onClick={onFlip}>Flip</button>
+          <button onClick={onFlip}>{inverted ? "Turn back" : "Invert"}</button>
         </div>
       );
     }
